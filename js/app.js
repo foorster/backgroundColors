@@ -1,25 +1,20 @@
 const button = document.getElementById('btn');
 const color = document.querySelector(".color")
+const block = document.getElementById('block');
 
 button.addEventListener('click', ()=>{
     let hexC =  generateHex();
-    document.body.style.backgroundColor = hexC;
-    color.textContent = hexC;
+    color.textContent = 'Фон ' + hexC;
+    block.style.backgroundImage = `url('img/${hexC}.jpg')`;
 })
 
-const hex =[
-    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E'
-, 'F']
+const hex =['1', '2', '3', '4', '5', '6']
 
 function generateHex(){
-    let hexC = '#'
-    for (let i=0; i<6; i++){
-        hexC += hex[getRandom()]
-    }
+    let hexC = hex[getRandom()]
     return hexC;
 }
+
 function getRandom(){
     return Math.floor(Math.random() *hex.length);
 }
-
-console.log(getRandom());
